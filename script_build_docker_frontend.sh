@@ -1,0 +1,1 @@
+sudo docker build . -f Dockerfile.streamlit_app -t streamlit_app
