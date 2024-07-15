@@ -3,8 +3,7 @@ import requests
 
 # Address of server
 PROTOCOL = "http"
-# SERVER_IP_ADDRESS = "127.0.0.1"
-SERVER_IP_ADDRESS = "0.0.0.0"
+SERVER_IP_ADDRESS = "127.0.0.1"
 # SERVER_IP_ADDRESS = "localhost"
 SERVER_PORT = "8080"
 BASE_URL = f"{PROTOCOL}://{SERVER_IP_ADDRESS}:{SERVER_PORT}"
@@ -31,6 +30,7 @@ def main():
         st.sidebar.write(f"Message: {message}")
 
     input_text = st.text_input("Enter your text here:")
+    input_text = input_text.lower()
 
     if st.button("Find emotion"):
         
