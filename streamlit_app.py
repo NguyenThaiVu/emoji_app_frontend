@@ -6,7 +6,7 @@ PROTOCOL = "http"
 # SERVER_IP_ADDRESS = "127.0.0.1"
 SERVER_IP_ADDRESS = "0.0.0.0"
 # SERVER_IP_ADDRESS = "localhost"
-SERVER_PORT = "5000"
+SERVER_PORT = "8080"
 BASE_URL = f"{PROTOCOL}://{SERVER_IP_ADDRESS}:{SERVER_PORT}"
 BASE_URL = f"https://sea-lion-app-lvyeb.ondigitalocean.app"
 
