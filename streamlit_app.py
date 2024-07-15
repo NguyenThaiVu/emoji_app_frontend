@@ -11,16 +11,31 @@ BASE_URL = f"{PROTOCOL}://{SERVER_IP_ADDRESS}:{SERVER_PORT}"
 BASE_URL = f"https://sea-lion-app-lvyeb.ondigitalocean.app"
 
 
+def get_server_connection():
+    try:
+        response = requests.get(f"{BASE_URL}/server_data")
+        response.raise_for_status()
+        data = response.json()
+        return data.get('message', 'No connection to Server!')
+    except requests.RequestException as e:
+        return f"Error fetching message: {e}"
+
+
 def main():
 
     st.title("Emojify App")
+
+    st.sidebar.title("Control Panel")
+    if st.sidebar.button('Get Message from Server'):
+        message = get_server_connection()
+        st.sidebar.write(f"Message: {message}")
 
     input_text = st.text_input("Enter your text here:")
 
     if st.button("Find emotion"):
         
         # Send input text to backend
-        data = {'input_text': input_text}
+        data = {'query': input_text}
         response = requests.post(f"{BASE_URL}/predict", json=data)
 
         # Check if the request was successful
